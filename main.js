@@ -132,10 +132,8 @@ function incomingPaid(index) {
 
 function save() {
   getWhatWhere();
-  // checkMoneyInput();
   getChoosenDate();
   validateEuroIncoming();
-  // getSelectedValue();
   addToLocalStorage();
   showAlertNewIncoming();
   document.getElementById("saveButton").disabled = true;

@@ -88,13 +88,25 @@ body {
   bottom: 0;
 }
 
-.delete-btn {
+.unpaid-btn {
   position: absolute;
   z-index: 10;
   top: 0;
   left: 0;
   right: 50%;
   bottom: 0;
+  color: white !important;
+}
+
+.delete-btn {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 50%;
+
 }
 
 .toggleIndex {
