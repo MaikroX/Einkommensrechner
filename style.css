@@ -1,0 +1,123 @@
+body {
+  background-color: #262626 !important;
+  color: white !important;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.dashboard-box {
+  min-height: 100px;
+}
+
+/* Font Sizes*/
+
+.dashboard-font-size {
+  font-size: 4vw;
+}
+
+@media (min-width: 660px) {
+  .max-fs-22 {
+    font-size: 26px;
+  }
+}
+
+.table-top-fs {
+  font-size: 0.8rem;
+}
+
+.table-inner-fs {
+  font-size: 0.75rem;
+}
+
+/* Font Sizes End*/
+
+.add-Button {
+  width: 3rem;
+  height: 3rem;
+}
+
+.close {
+  color: #fff !important;
+  text-shadow: none !important;
+  font-weight: 200 !important;
+}
+
+.dropdown-menu {
+  height: 250px !important;
+  border: none !important;
+}
+
+.modal.fade.show {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.border-middle-content {
+  border-left: solid 2px #8080802b;
+  border-right: solid 2px #8080802b;
+}
+
+.border-middle-head-content {
+  border-left: solid 2px #343a402b;
+  border-right: solid 2px #343a402b;
+}
+
+.alert-position {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.display-none {
+  display: none;
+}
+
+.workTime-btn {
+  width: 150px;
+}
+
+.paid-btn {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 50%;
+  bottom: 0;
+}
+
+.delete-btn {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 50%;
+  bottom: 0;
+}
+
+.toggleIndex {
+  z-index: -1 !important;
+  pointer-events: none;
+}
+
+.table-top-border {
+  border-right: 8px solid transparent;
+}
+
+.incoming-border-right-openIncoming {
+  border-right: solid 8px #ffc008;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.incoming-border-right-paidIncoming {
+  border-right: solid 8px #007bff;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
