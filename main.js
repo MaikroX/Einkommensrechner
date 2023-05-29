@@ -72,7 +72,7 @@ function getChoosenDate() {
 }
 
 function showAlertNewIncoming() {
-  document.getElementById("newSaved").style.display = "block";
+  document.getElementById("newSaved").style.display = "flex";
   setTimeout(function () {
     document.getElementById("newSaved").style.display = "none";
   }, 2000);
