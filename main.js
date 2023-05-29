@@ -15,6 +15,7 @@ function init() {
   showWorkingsUnpaid();
   calcTotalMoney();
   calcgotMoney();
+  calcOpenMoney();
 
 }
 
@@ -31,6 +32,7 @@ function save() {
   showWorkingsUnpaid();
   calcTotalMoney();
   calcgotMoney();
+  calcOpenMoney();
 
 
 }
@@ -138,7 +140,6 @@ function calcTotalMoney() {
 }
 
 
-
 function calcgotMoney() {
   // Daten aus LocalStorage abrufen
   const storedData = localStorage.getItem("workData");
@@ -169,5 +170,36 @@ function calcgotMoney() {
   }
   // Zeige die Gesamtsumme von howManyMoney an
   console.log("Bezahlt: ", gotMoney);
+}
 
+function calcOpenMoney() {
+  // Daten aus LocalStorage abrufen
+  const storedData = localStorage.getItem("workData");
+  // Überprüfen, ob Daten im LocalStorage vorhanden sind
+  if (storedData) {
+    // Daten in ein Array umwandeln
+    const workData = JSON.parse(storedData);
+    // Variable zum Speichern der Gesamtsumme von howManyMoney
+    let openMoney = 0;
+    // Schleife durchlaufen, um jeden Datensatz zu verarbeiten
+    for (let i = 0; i < workData.length; i++) {
+      const work = workData[i];
+      // Addiere howManyMoney zum totalMoney
+      if (work.isPaid == false) {
+
+        openMoney += parseFloat(work.howManyMoney);
+        // Datensatz in die Tabelle einfügen
+        document.getElementById("openMoney").innerHTML = ``;
+        document.getElementById("openMoney").innerHTML += /*html*/ `
+      ${openMoney.toLocaleString("de-DE", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })} €
+    `;
+
+      }
+    }
+    console.log("Bezahlt: ", openMoney);
+  }
+  // Zeige die Gesamtsumme von howManyMoney an
 }
