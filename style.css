@@ -108,18 +108,22 @@ body {
   z-index: 10;
   top: 0;
   right: 0;
-  left: 50%;
   bottom: 0;
+  width: 30%;
 }
 
 .unpaid-btn {
   position: absolute;
   z-index: 10;
   top: 0;
-  left: 0;
-  right: 50%;
   bottom: 0;
-  color: white !important;
+  left: 35%;
+  transform: translate(-0%, 0);
+  width: 30%;
+}
+
+.unpaid-btn.btn-warning {
+  color: white;
 }
 
 .delete-btn {
@@ -127,9 +131,9 @@ body {
   z-index: 10;
   top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 50%;
+  left: 0;
+  transform: translate(-0%, 0);
+  width: 30%;
 }
 
 .toggleIndex {

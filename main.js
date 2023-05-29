@@ -9,6 +9,14 @@ let newWork = {
   isPaid: false,
 };
 
+
+document.addEventListener('touchmove', function (event) {
+  if (event.scale !== 1) {
+    event.preventDefault();
+  }
+}, { passive: false });
+
+
 function init() {
   document.getElementById("workings").innerHTML = ``;
   showWorkingsPaid();
@@ -203,3 +211,4 @@ function calcOpenMoney() {
   }
   // Zeige die Gesamtsumme von howManyMoney an
 }
+
