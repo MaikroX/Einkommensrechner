@@ -22,7 +22,7 @@
     <title>Einkommen</title>
   </head>
   <body onload="init()">
-    <div class="main-contain position-relative">
+    <div class="main-contain">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand text-white" href="#">Logo</a>
         <button
@@ -43,8 +43,7 @@
               href="#"
               >Aktuelle Einnahmen<span class="sr-only">(current)</span></a
             >
-            <a onclick="clearLocalStorage()"
-              class="nav-item nav-link text-white d-flex justify-content-center"
+            <a class="nav-item nav-link text-white d-flex justify-content-center"
               href="#"
               >Alle Einnahmen</a
             >
@@ -57,7 +56,7 @@
         </div>
 
         <div class="dashboard container-xs text-uppercase">
-          <div class="row  text-white ml-0 mr-0 mb-2 mt-0">
+          <div class="row text-white ml-0 mr-0 mb-2 mt-0 sums">
 
 
             <div
@@ -84,8 +83,7 @@
             </h4>
             <div
               class="dashboar-box-inner -dark dashboard-font-size max-fs-22 font-weight-bold"
-            >
-              320,00€
+            > <span id="gotMoney">0,00 €</span>
             </div>
           </div>
 
@@ -102,7 +100,7 @@
               <div
                 class="dashboard-box-inner dashboard-font-size max-fs-22 font-weight-bold"
               >
-                <span id="totalMoney">640,00€</span>
+                <span id="totalMoney">0,00€</span>
               </div>
             </div>
           </div>
@@ -147,7 +145,7 @@
             </div>
           </div>
 
-          <div id="workings" class="d-flex flex-column-reverse">
+          <div id="workings" class="d-flex flex-column-reverse overflow-auto height-50vh">
 
       </div>
     </div>
@@ -186,9 +184,8 @@
 
     
     <script src="main.js"></script>
-    <script src="template.js"></script>
-    
-    
+    <script src="showWorkings.js"></script>
+    <script src="buttonStates.js"></script>
     <script src="tempNeuesEinkommen.js"></script>
   </body>
 </html>

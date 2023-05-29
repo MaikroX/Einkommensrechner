@@ -6,140 +6,33 @@ let newWork = {
   timeWork: "",
   howManyMoney: "",
   buttonThere: false,
+  isPaid: false,
 };
 
 function init() {
   document.getElementById("workings").innerHTML = ``;
-  showWorkings();
+  showWorkingsPaid();
+  showWorkingsUnpaid();
   calcTotalMoney();
-}
+  calcgotMoney();
 
-function toggleButtons(index, isVisible) {
-  const storedData = getData();
-  if (storedData) {
-    const workData = JSON.parse(storedData);
-
-    // ID des übergeordneten Elements
-    const parentId = `myIncoming${index}`;
-
-    // Buttons im übergeordneten Element
-    let parentElement = document.getElementById(parentId);
-    let paidButton = parentElement.querySelector(`#paid${index}`);
-    let deleteButton = parentElement.querySelector(`#delete${index}`);
-
-    // Buttons ein- oder ausblenden
-    if (isVisible) {
-      paidButton.classList.remove("toggleIndex");
-      deleteButton.classList.remove("toggleIndex");
-    } else {
-      paidButton.classList.add("toggleIndex");
-      deleteButton.classList.add("toggleIndex");
-    }
-    workData[index].buttonThere = isVisible;
-    localStorage.setItem("workData", JSON.stringify(workData));
-  }
-}
-
-function showButtons(index) {
-  const storedData = getData();
-  if (storedData) {
-    const workData = JSON.parse(storedData);
-
-    // ID des übergeordneten Elements
-    const parentId = `myIncoming${index}`;
-
-    // Buttons im übergeordneten Element ausblenden
-    let parentElement = document.getElementById(parentId);
-    let paidButton = parentElement.querySelector(`#paid${index}`);
-    let deleteButton = parentElement.querySelector(`#delete${index}`);
-
-    paidButton.classList.remove("toggleIndex");
-    deleteButton.classList.remove("toggleIndex");
-    workData[index].buttonThere = true;
-    localStorage.setItem("workData", JSON.stringify(workData));
-  }
-}
-
-function hideButtons(index) {
-  const storedData = getData();
-  if (storedData) {
-    const workData = JSON.parse(storedData);
-
-    // ID des übergeordneten Elements
-    const parentId = `myIncoming${index}`;
-
-    // Buttons im übergeordneten Element ausblenden
-    let parentElement = document.getElementById(parentId);
-    let paidButton = parentElement.querySelector(`#paid${index}`);
-    let deleteButton = parentElement.querySelector(`#delete${index}`);
-
-    paidButton.classList.add("toggleIndex");
-    deleteButton.classList.add("toggleIndex");
-    workData[index].buttonThere = false;
-    localStorage.setItem("workData", JSON.stringify(workData));
-  }
-}
-
-function deleteIncoming(index) {
-  // Daten aus dem LocalStorage abrufen
-  const storedData = getData();
-  if (storedData) {
-    const workData = JSON.parse(storedData);
-
-    // Eintrag an dem angegebenen Index entfernen
-    workData.splice(index, 1);
-
-    // Aktualisierte Daten im LocalStorage speichern
-    localStorage.setItem("workData", JSON.stringify(workData));
-
-    // Entfernen Sie das Element aus der Anzeige
-    const parentId = `myIncoming${index}`;
-    let deletedIncoming = document.getElementById(parentId);
-    if (deletedIncoming) {
-      deletedIncoming.style.display = "none";
-    } else {
-      console.log(`Element with ID '${parentId}' not found.`);
-    }
-
-    // Aktualisiere die Anzeige
-    document.getElementById("workings").innerHTML = ``;
-    showWorkings();
-    calcTotalMoney();
-  }
-}
-
-function incomingPaid(index) {
-  const storedData = getData();
-  if (storedData) {
-    const workData = JSON.parse(storedData);
-    localStorage.setItem("workData", JSON.stringify(workData));
-
-    const incomingState = `incomingState${index}`;
-    let changeState = document.getElementById(incomingState);
-    if (changeState) {
-      changeState.classList.remove("incoming-border-right-openIncoming");
-      changeState.classList.add("incoming-border-right-paidIncoming");
-
-      // Buttons ausblenden, wenn auf "Incoming Paid" geklickt wird
-      setTimeout(() => {
-        hideButtons(index);
-      }, 5);
-    }
-  } else {
-    console.log(`Element with ID '${parentId}' not found.`);
-  }
 }
 
 function save() {
   getWhatWhere();
   getChoosenDate();
   validateEuroIncoming();
+  isPaid = false;
   addToLocalStorage();
   showAlertNewIncoming();
   document.getElementById("saveButton").disabled = true;
   document.getElementById("workings").innerHTML = ``;
-  showWorkings();
+  showWorkingsPaid();
+  showWorkingsUnpaid();
   calcTotalMoney();
+  calcgotMoney();
+
+
 }
 
 function getWhatWhere() {
@@ -147,7 +40,8 @@ function getWhatWhere() {
   let doing = document.getElementById("doing").value;
   newWork.where = whereWork;
   newWork.what = doing;
-  showWorkings();
+  showWorkingsPaid();
+  showWorkingsUnpaid();
 }
 
 // function checkMoneyInput() {
@@ -241,4 +135,39 @@ function calcTotalMoney() {
     // Zeige die Gesamtsumme von howManyMoney an
     console.log("Gesamtsumme von howManyMoney: ", totalMoney);
   }
+}
+
+
+
+function calcgotMoney() {
+  // Daten aus LocalStorage abrufen
+  const storedData = localStorage.getItem("workData");
+  // Überprüfen, ob Daten im LocalStorage vorhanden sind
+  if (storedData) {
+    // Daten in ein Array umwandeln
+    const workData = JSON.parse(storedData);
+    // Variable zum Speichern der Gesamtsumme von howManyMoney
+    let gotMoney = 0;
+    // Schleife durchlaufen, um jeden Datensatz zu verarbeiten
+    for (let i = 0; i < workData.length; i++) {
+      const work = workData[i];
+      // Addiere howManyMoney zum totalMoney
+      if (work.isPaid == true) {
+
+        gotMoney += parseFloat(work.howManyMoney);
+        // Datensatz in die Tabelle einfügen
+        document.getElementById("gotMoney").innerHTML = ``;
+        document.getElementById("gotMoney").innerHTML += /*html*/ `
+      ${gotMoney.toLocaleString("de-DE", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })} €
+    `;
+
+      }
+    }
+  }
+  // Zeige die Gesamtsumme von howManyMoney an
+  console.log("Bezahlt: ", gotMoney);
+
 }

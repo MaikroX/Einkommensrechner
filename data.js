@@ -9,11 +9,3 @@ function addToLocalStorage() {
   localStorage.setItem("workData", JSON.stringify(existingData));
 }
 
-//
-// Hilfsfunktion only für development!!!
-// Löscht den gesamten LocalStorage
-//
-function clearLocalStorage() {
-  localStorage.clear();
-  window.location.reload();
-}

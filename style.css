@@ -11,6 +11,13 @@ body {
   min-height: 100px;
 }
 
+.sums {
+  position: sticky;
+  top: 0;
+  background-color: #262626;
+  z-index: 20;
+}
+
 /* Font Sizes*/
 
 .dashboard-font-size {
@@ -106,7 +113,6 @@ body {
   left: 50%;
   transform: translate(-50%, 0);
   width: 50%;
-
 }
 
 .toggleIndex {
