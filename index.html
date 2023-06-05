@@ -23,8 +23,9 @@
   </head>
   <body onload="init()">
     <div class="main-contain">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand text-white" href="#">Logo</a>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary-edit d-flex justify-content-between align-items-center">
+<div><img src=".\src\img\Amy-whiteOnBlue.png" style="max-width: 80px;" alt=""></div>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -51,16 +52,14 @@
         </div>
       </nav>
       <div class="main-inner m-2">
-        <div>
-          <h1 style="font-size: 8vw" ; class="h1 text-center p-4">Einkommen</h1>
-        </div>
+
 
         <div class="dashboard container-xs text-uppercase">
           <div class="row text-white ml-0 mr-0 mb-2 mt-0 sums">
 
 
             <div
-              class="dashboard-box -dark col bg-warning rounded d-flex flex-column justify-content-center align-items-center p-2 "
+              class="dashboard-box col bg-warning rounded d-flex flex-column justify-content-center align-items-center p-2 "
             >
               <h4 class="text-center dashboard-font-size max-fs-22">
                 Betrag <br />
@@ -75,21 +74,21 @@
 
 
             <div
-            class="dashboard-box -dark col bg-primary rounded d-flex flex-column justify-content-center align-items-center p-2 ml-2 mr-2"
+            class="dashboard-box col bg-primary-edit rounded d-flex flex-column justify-content-center align-items-center p-2 ml-2 mr-2"
           >
             <h4 class="text-center dashboard-font-size max-fs-22">
               Betrag <br />
               Erhalten
             </h4>
             <div
-              class="dashboar-box-inner -dark dashboard-font-size max-fs-22 font-weight-bold"
+              class="dashboar-box-inner dashboard-font-size max-fs-22 font-weight-bold"
             > <span id="gotMoney">0,00 €</span>
             </div>
           </div>
 
 
             <div
-              class="dashboard-box -dark col bg-secondary rounded d-flex flex-column justify-content-center align-items-center p-2"
+              class="dashboard-box col bg-info-edit rounded d-flex flex-column justify-content-center align-items-center p-2"
             >
               <div>
                 <h4 class="text-center dashboard-font-size max-fs-22">
@@ -105,11 +104,11 @@
             </div>
           </div>
 
-          <div class="w-100 d-flex justify-content-center p-4">
+          <div class="w-100 d-flex justify-content-center p-2">
             <button
               onclick="showNewWorkInput()"
               type="button"
-              class="btn btn-primary rounded-circle d-flex justify-content-center align-items-center p-0 add-Button"
+              class="btn btn-warning-edit text-white font-weight-bold rounded-circle d-flex justify-content-center align-items-center p-0 add-Button"
               data-toggle="modal"
               data-target="#exampleModal"
               data-whatever="@mdo"
@@ -135,12 +134,12 @@
 
 <div class="pt-2 pb-2 bg-color1 sticky-table-top">
           <div
-            class="table-top d-flex justify-content-center align-items-center bg-secondary rounded  table-top-border"
+            class="table-top d-flex justify-content-center align-items-center rounded pr-2"
           >
             <div class="row text-center w-100 d-flex pt-2 pb-2 table-top-fs">
               <div class="col-3 p-0 p-1 rounded-start">Wann</div>
 
-              <div class="col p-0 p-1 border-middle-head-content ">WO / WAS</div>
+              <div class="col p-0 p-1 border-middle-head-content "> <span>WO</span> / <span>WAS</span></div>
               <div class="col-3 p-0 p-1">Euro</div>
             </div>
           </div>

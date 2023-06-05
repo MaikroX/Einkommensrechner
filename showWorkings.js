@@ -15,16 +15,18 @@ function showWorkingsUnpaid() {
         // Datensatz in die Tabelle einfügen
         document.getElementById("workings").innerHTML += /*html*/ `
           <div id="myIncoming${i}" onclick="showButtons(${i})">
-            <div id="incomingState${i}" class="table-top d-flex justify-content-center align-items-center mb-1 position-relative  incoming-border-right-openIncoming">
-              <div class="row text-center w-100 d-flex pt-2 pb-2 table-top-fs bg-dark rounded ">
+            <div id="incomingState${i}" class="table-top incoming-style d-flex justify-content-center align-items-center mb-1 position-relative rounded  incoming-border-right-openIncoming">
+              <div class="row text-center w-100 d-flex pt-2 pb-2 table-top-fs bg-info-edit font-weight-bold rounded-left incoming-style incoming-style-unpaid">
 
                 <div class="col-3 p-0 p-2 table-inner-fs d-flex justify-content-center align-items-center w-25 overflow-visible">
                   ${work.newWorkDate}
                 </div>
 
-                <div class="col p-0 p-0 pl-1 pr-1 pb-2 pt-2 overflow-auto table-inner-fs d-flex flex-column justify-content-center align-items-center w-50 border-middle-content">
-                  <div>${work.where}</div>
-                  <div>${work.what}</div>
+                <div class="col p-0 p-0 pl-1 pr-1 pb-2 pt-2 overflow-auto table-inner-fs d-flex flex-column justify-content-center w-50 border-middle-content">
+                  <div class="d-flex flex-column"> 
+                    <div class="d-flex justify-content-center align-items-center incoming-head-style"> ${work.where}</div>
+                    <div>${work.what}</div>
+                  </div>
                   <div id="toggleButtons${i}" class="bg-color1">
                     <button onclick="incomingPaid(${i})" id="paid${i}" class="paid-btn btn-primary toggleIndex rounded">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
@@ -69,15 +71,15 @@ function showWorkingsPaid() {
       if (work.isPaid == true) {
         document.getElementById("workings").innerHTML += /*html*/ `
           <div id="myIncoming${i}" onclick="showButtons(${i})" >
-            <div id="incomingState${i}" class="table-top d-flex justify-content-center align-items-center mb-1 position-relative  incoming-border-right-paidIncoming">
-              <div class="row text-center w-100 d-flex pt-2 pb-2 table-top-fs bg-dark rounded ">
+            <div id="incomingState${i}" class="table-top d-flex justify-content-center align-items-center mb-1 position-relative  incoming-border-right-paidIncoming rounded">
+              <div class="row text-center font-weight-bold w-100 d-flex pt-2 pb-2 table-top-fs bg-info-edit rounded-left incoming-style">
                 
                 <div class="col-3 p-0 p-2 table-inner-fs d-flex justify-content-center align-items-center w-25 overflow-visible">
                   ${work.newWorkDate}
                 </div>
   
-                <div class="col p-0 p-0 pl-1 pr-1 pb-2 pt-2 overflow-auto table-inner-fs d-flex flex-column justify-content-center align-items-center w-50 border-middle-content">
-                  <div>${work.where}</div>
+                <div class="col p-0 p-0 pl-1 pr-1 pb-2 pt-2 overflow-auto table-inner-fs d-flex flex-column justify-content-center w-50 border-middle-content">
+                  <div class="incoming-head-style">${work.where}</div>
                   <div>${work.what}</div>
                   <div id="toggleButtons${i}">
                 

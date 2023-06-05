@@ -1,24 +1,54 @@
 body {
-  background-color: #262626 !important;
+  /* background-color: #262626 !important; */
+  background-color: #e7e7e799 !important;
   color: white !important;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(226, 251, 171, 0.5),
+    rgba(19, 112, 213, 0.2),
+    rgba(0, 160, 229, 0.3),
+    rgba(0, 198, 207, 0.2),
+    rgba(117, 229, 178, 0.3)
+  ) !important;
+  min-height: 100vh;
 }
 
 .bg-color1 {
-  background-color: #262626;
+  /* background-color: #262626; */
+}
+
+.bg-primary-edit {
+  background-color: #1370d5 !important;
+}
+
+.bg-info-edit {
+  background-color: #95c5d7 !important;
 }
 
 .overflow-auto {
   overflow: auto;
 }
 
+.nav-headline h1 {
+  font-size: 24px;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.second-headline {
+  font-size: 12px;
+}
+
 .dashboard-box {
   min-height: 100px;
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.35));
 }
 
 .sums {
   position: sticky;
   top: 0;
-  background-color: #262626;
+  /* background-color: #262626; */
   z-index: 20;
 }
 
@@ -44,6 +74,11 @@ body {
   font-size: 0.8rem;
 }
 
+.table-top {
+  background-color: #3a6f9e;
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
 .table-inner-fs {
   font-size: 0.75rem;
 }
@@ -53,6 +88,16 @@ body {
 .add-Button {
   width: 3rem;
   height: 3rem;
+  border: none;
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.15));
+}
+
+.incoming-style {
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.incoming-style-unpaid {
+  background-color: #62a2bb !important;
 }
 
 .close {
@@ -73,13 +118,13 @@ body {
 }
 
 .border-middle-content {
-  border-left: solid 2px #8080802b;
-  border-right: solid 2px #8080802b;
+  border-left: solid 2px #ffffff40;
+  border-right: solid 2px #ffffff40;
 }
 
 .border-middle-head-content {
-  border-left: solid 2px #343a402b;
-  border-right: solid 2px #343a402b;
+  border-left: solid 2px #ffffff40;
+  border-right: solid 2px #ffffff40;
 }
 
 .alert-position {
@@ -101,6 +146,21 @@ body {
 
 .workTime-btn {
   width: 150px;
+}
+
+.incoming-head-style {
+  background-image: linear-gradient(
+    175deg,
+    rgb(58 111 158 / 38%),
+    rgb(58 111 158 / 15%) 95%,
+    rgb(58 111 158 / 0%)
+  );
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.btn.btn-warning-edit {
+  background-color: #3a6f9e;
 }
 
 .paid-btn {
@@ -139,10 +199,6 @@ body {
 .toggleIndex {
   z-index: -1 !important;
   pointer-events: none;
-}
-
-.table-top-border {
-  border-right: 8px solid transparent;
 }
 
 .incoming-border-right-openIncoming {
