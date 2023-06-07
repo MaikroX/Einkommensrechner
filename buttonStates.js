@@ -7,15 +7,18 @@ function toggleButtons(index, isVisible) {
         const parentId = `myIncoming${index}`;
         // Buttons im übergeordneten Element
         let parentElement = document.getElementById(parentId);
+        let btnBoxes = parentElement.querySelector(`#btnBox${index}`);
         let paidButton = parentElement.querySelector(`#paid${index}`);
         let deleteButton = parentElement.querySelector(`#delete${index}`);
         let unPaidButton = parentElement.querySelector(`#unPaid${index}`);
         // Buttons ein- oder ausblenden
         if (isVisible) {
+            btnBoxes.classList.remove("toggleIndex");
             paidButton.classList.remove("toggleIndex");
             deleteButton.classList.remove("toggleIndex");
             unPaidButton.classList.remove("toggleIndex");
         } else {
+            btnBoxes.classList.add("toggleIndex");
             paidButton.classList.add("toggleIndex");
             deleteButton.classList.add("toggleIndex");
             unPaidButton.classList.add("toggleIndex");
@@ -35,10 +38,12 @@ function showButtons(index) {
 
         // Buttons im übergeordneten Element ausblenden
         let parentElement = document.getElementById(parentId);
+        let btnBoxes = parentElement.querySelector(`#btnBox${index}`);
         let paidButton = parentElement.querySelector(`#paid${index}`);
         let deleteButton = parentElement.querySelector(`#delete${index}`);
         let unPaidButton = parentElement.querySelector(`#unPaid${index}`);
 
+        btnBoxes.classList.remove("toggleIndex");
         paidButton.classList.remove("toggleIndex");
         deleteButton.classList.remove("toggleIndex");
         unPaidButton.classList.remove("toggleIndex");

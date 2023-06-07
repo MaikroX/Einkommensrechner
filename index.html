@@ -5,26 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <script src="data.js"></script>
     <link rel="stylesheet" href="style.css" />
-
 
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
 
     <title>Einkommen</title>
   </head>
   <body onload="init()">
     <div class="main-contain">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary-edit d-flex justify-content-between align-items-center">
-<div><img src=".\src\img\Amy-whiteOnBlue.png" style="max-width: 80px;" alt=""></div>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-primary-edit d-flex justify-content-between align-items-center">
+        <div><img src=".\src\img\Amy-whiteOnBlue.png" style="max-width: 80px;"
+            alt></div>
 
         <button
           class="navbar-toggler"
@@ -33,63 +32,51 @@
           data-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a
               class="nav-item nav-link active text-white d-flex justify-content-center"
-              href="#"
-              >Aktuelle Einnahmen<span class="sr-only">(current)</span></a
-            >
-            <a class="nav-item nav-link text-white d-flex justify-content-center"
-              href="#"
-              >Alle Einnahmen</a
-            >
+              href="#">Aktuelle Einnahmen<span class="sr-only">(current)</span></a>
+            <a
+              class="nav-item nav-link text-white d-flex justify-content-center"
+              href="#">Alle Einnahmen</a>
           </div>
         </div>
       </nav>
       <div class="main-inner m-2">
 
-
         <div class="dashboard container-xs text-uppercase">
           <div class="row text-white ml-0 mr-0 mb-2 mt-0 sums">
 
-
             <div
-              class="dashboard-box col bg-warning rounded d-flex flex-column justify-content-center align-items-center p-2 "
-            >
+              class="dashboard-box col bg-warning rounded d-flex flex-column justify-content-center align-items-center p-2 ">
               <h4 class="text-center dashboard-font-size max-fs-22">
                 Betrag <br />
                 Offen
               </h4>
               <div
-                class="dashboard-box-inner dashboard-font-size max-fs-22 font-weight-bold"
-              ><span id="openMoney">0,00 €</span>
-                
+                class="dashboard-box-inner dashboard-font-size max-fs-22 font-weight-bold"><span
+                  id="openMoney">0,00 €</span>
               </div>
             </div>
 
-
             <div
-            class="dashboard-box col bg-primary-edit rounded d-flex flex-column justify-content-center align-items-center p-2 ml-2 mr-2"
-          >
-            <h4 class="text-center dashboard-font-size max-fs-22">
-              Betrag <br />
-              Erhalten
-            </h4>
-            <div
-              class="dashboar-box-inner dashboard-font-size max-fs-22 font-weight-bold"
-            > <span id="gotMoney">0,00 €</span>
+              class="dashboard-box col bg-primary-edit rounded d-flex flex-column justify-content-center align-items-center p-2 ml-2 mr-2">
+              <h4 class="text-center dashboard-font-size max-fs-22">
+                Betrag <br />
+                Erhalten
+              </h4>
+              <div
+                class="dashboar-box-inner dashboard-font-size max-fs-22 font-weight-bold">
+                <span id="gotMoney">0,00 €</span>
+              </div>
             </div>
-          </div>
-
 
             <div
-              class="dashboard-box col bg-info-edit rounded d-flex flex-column justify-content-center align-items-center p-2"
-            >
+              class="dashboard-box col bg-info-edit rounded d-flex flex-column justify-content-center align-items-center p-2">
               <div>
                 <h4 class="text-center dashboard-font-size max-fs-22">
                   Betrag <br />
@@ -97,8 +84,7 @@
                 </h4>
               </div>
               <div
-                class="dashboard-box-inner dashboard-font-size max-fs-22 font-weight-bold"
-              >
+                class="dashboard-box-inner dashboard-font-size max-fs-22 font-weight-bold">
                 <span id="totalMoney">0,00€</span>
               </div>
             </div>
@@ -111,90 +97,83 @@
               class="btn btn-warning-edit text-white font-weight-bold rounded-circle d-flex justify-content-center align-items-center p-0 add-Button"
               data-toggle="modal"
               data-target="#exampleModal"
-              data-whatever="@mdo"
-            >
+              data-whatever="@mdo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
                 fill="currentColor"
                 class="bi bi-plus-lg"
-                viewBox="0 0 16 16"
-              >
+                viewBox="0 0 16 16">
                 <path
                   fill-rule="evenodd"
-                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
-                />
+                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
               </svg>
             </button>
           </div>
 
+          <div class="pt-2 pb-2 sticky-table-top">
+            <div
+              class="table-top d-flex justify-content-center align-items-center rounded pr-2">
+              <div class="row text-center w-100 d-flex pt-2 pb-2 table-top-fs">
+                <div class="col-3 p-0 p-1 rounded-start">Wann</div>
 
+                <div class="col p-0 p-1 border-middle-head-content "> <span>WO</span>
+                  / <span>WAS</span></div>
+                <div class="col-3 p-0 p-1">Euro</div>
+              </div>
 
-
-<div class="pt-2 pb-2 bg-color1 sticky-table-top">
-          <div
-            class="table-top d-flex justify-content-center align-items-center rounded pr-2"
-          >
-            <div class="row text-center w-100 d-flex pt-2 pb-2 table-top-fs">
-              <div class="col-3 p-0 p-1 rounded-start">Wann</div>
-
-              <div class="col p-0 p-1 border-middle-head-content "> <span>WO</span> / <span>WAS</span></div>
-              <div class="col-3 p-0 p-1">Euro</div>
             </div>
+
+          </div>
+          <div id="workings"
+            class="d-flex flex-column-reverse overflow-auto height-50vh">
+
           </div>
         </div>
-          <div id="workings" class="d-flex flex-column-reverse overflow-auto height-50vh">
+      </div>
+
+      <div
+        class="alert alert-success position-absolute alert-position text-center justify-content-center align-items-center flex-column p-3 alert-success-indi display-none"
+        role="alert"
+        id="newSaved">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+          fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+          <path
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path
+            d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+        </svg>
+        <br>
+        <span>
+          Neues Einkommen gespeichert.
+        </span>
 
       </div>
-    </div>
-  </div>
 
+      <div id="newModal"></div>
 
-    <div
-      class="alert alert-success position-absolute alert-position text-center justify-content-center align-items-center flex-column p-3 alert-success-indi display-none"
-      role="alert"
-      id="newSaved"
-    >
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-      <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-    </svg>
-    <br>
-    <span>
-      Neues Einkommen gespeichert.
-      </span>
+      <!-- BootstrapScript JS  -->
 
-    </div>
-    
-    <div id="newModal"></div>
+      <script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
 
+      <!-- BootstrapScript JS  -->
+      <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+      <script src="main.js"></script>
+      <script src="showWorkings.js"></script>
+      <script src="buttonStates.js"></script>
+      <script src="tempNeuesEinkommen.js"></script>
 
-    <!-- BootstrapScript JS  -->
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-      integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- BootstrapScript JS  -->
-    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
-    <script src="main.js"></script>
-    <script src="showWorkings.js"></script>
-    <script src="buttonStates.js"></script>
-    <script src="tempNeuesEinkommen.js"></script>
-
-
-  </body>
-</html>
+    </body>
+  </html>
