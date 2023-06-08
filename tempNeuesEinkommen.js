@@ -1,5 +1,6 @@
 function showNewWorkInput() {
   document.getElementById("newModal").innerHTML = ``;
+
   document.getElementById("newModal").innerHTML += /*html*/ `
         <div
         class="modal fade"
@@ -32,7 +33,7 @@ function showNewWorkInput() {
                   <input
                     id="getDate"
                     type="date"
-                    class="form-control"
+                    class="form-control text-center"
                     placeholder="Wähle ein Datum"
                     oninput="validate()"
                   />
@@ -126,4 +127,35 @@ function showNewWorkInput() {
       </div>
       </div>
     `;
+  startTimerPlaceholder();
+  endTimerPlaceholder();
+  datePlaceholder();
+}
+
+function startTimerPlaceholder() {
+  let timePicker = document.getElementById("timePickerStart");
+  let currentTime = new Date();
+  let hours = String(currentTime.getHours()).padStart(2, "0");
+  let minutes = "00";
+  let defaultValue = hours + ":" + minutes;
+  timePicker.value = defaultValue;
+}
+
+function endTimerPlaceholder() {
+  let timePicker = document.getElementById("timePickerEnde");
+  let currentTime = new Date();
+  let hours = String(currentTime.getHours() + 1).padStart(2, "0");
+  let minutes = "00";
+  let defaultValue = hours + ":" + minutes;
+  timePicker.value = defaultValue;
+}
+
+function datePlaceholder() {
+  let dateInput = document.getElementById("getDate");
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = String(today.getMonth() + 1).padStart(2, "0");
+  let day = String(today.getDate()).padStart(2, "0");
+  let defaultValue = year + "-" + month + "-" + day;
+  dateInput.value = defaultValue;
 }

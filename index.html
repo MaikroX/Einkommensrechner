@@ -21,35 +21,36 @@
   <body onload="init()">
     <div class="main-contain">
       <nav
-        class="navbar navbar-expand-lg navbar-dark bg-primary-edit d-flex justify-content-between align-items-center">
-        <div><img src=".\src\img\Amy-whiteOnBlue.png" style="max-width: 80px;"
-            alt></div>
+        class="navbar navbar-dark bg-primary-edit p-2 justify-content-between align-items-center">
+        <a href="#"><img src=".\src\img\Amy-whiteOnBlue.png"
+            style="max-width: 80px;"
+            alt></a>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <span>Übersicht</span>
+        <div class="header-btn d-flex justify-content-end">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a
               class="nav-item nav-link active text-white d-flex justify-content-center"
-              href="#">Aktuelle Einnahmen<span class="sr-only">(current)</span></a>
-            <a
-              class="nav-item nav-link text-white d-flex justify-content-center"
-              href="#">Alle Einnahmen</a>
+              href="openMoney.html">Offene Stunden<span class="sr-only">(current)</span></a>
           </div>
         </div>
       </nav>
       <div class="main-inner m-2">
 
         <div class="dashboard container-xs text-uppercase">
-          <div class="row text-white ml-0 mr-0 mb-2 mt-0 sums">
+          <div class="row text-white m-0 sums">
 
             <div
               class="dashboard-box col bg-warning rounded d-flex flex-column justify-content-center align-items-center p-2 ">
@@ -64,7 +65,7 @@
             </div>
 
             <div
-              class="dashboard-box col bg-primary-edit rounded d-flex flex-column justify-content-center align-items-center p-2 ml-2 mr-2">
+              class="dashboard-box col bg-primary-two rounded d-flex flex-column justify-content-center align-items-center p-2 ml-2 mr-2">
               <h4 class="text-center dashboard-font-size max-fs-22">
                 Betrag <br />
                 Erhalten
@@ -90,7 +91,7 @@
             </div>
           </div>
 
-          <div class="w-100 d-flex justify-content-center p-2">
+          <div class="w-100 d-flex justify-content-center p-3">
             <button
               onclick="showNewWorkInput()"
               type="button"
@@ -112,14 +113,19 @@
             </button>
           </div>
 
-          <div class="pt-2 pb-2 sticky-table-top">
+          <div class="pb-2 sticky-table-top">
             <div
-              class="table-top d-flex justify-content-center align-items-center rounded pr-2">
+              class="table-top bg-primary-two d-flex justify-content-center align-items-center rounded pr-2">
               <div class="row text-center w-100 d-flex pt-2 pb-2 table-top-fs">
-                <div class="col-3 p-0 p-1 rounded-start">Wann</div>
+                <div onclick="sortByDateOnClick()"
+                  role="button"
+                  class="col-3 p-0 p-1 rounded-start">Wann</div>
 
-                <div class="col p-0 p-1 border-middle-head-content "> <span>WO</span>
-                  / <span>WAS</span></div>
+                <div onclick="sortByNameOnClick()"
+                  role="button"
+                  class="col p-0 p-1 border-middle-head-content ">
+                  <span>WO</span> / <span>WAS</span>
+                </div>
                 <div class="col-3 p-0 p-1">Euro</div>
               </div>
 
@@ -128,10 +134,39 @@
           </div>
           <div id="workings"
             class="d-flex flex-column-reverse overflow-auto height-50vh">
+          </div>
+          <a href="#" class="text-white"><svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-100 bg-primary-two rounded p-1"
+              width="32"
+              height="32"
+              fill="currentColor" class="bi bi-arrow-up-circle"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+            </svg>
+          </a>
 
+        </div>
+
+      </div>
+
+      <footer
+        class="bg-primary-edit d-flex align-items-center">
+        <div class="w-100 d-flex justify-content-between pl-2 pr-2 ">
+          <div>
+            <small class="text-white"> © </small>
+            <small class="text-white"> ML2023 </small>
+          </div>
+          <div class="d-flex">
+            <a class href="#"> <small class="text-white"> Datenschutz
+              </small></a>
+            &nbsp; I &nbsp;
+            <a class href="#"> <small class="text-white"> Impressum
+              </small></a>
           </div>
         </div>
-      </div>
+      </footer>
 
       <div
         class="alert alert-success position-absolute alert-position text-center justify-content-center align-items-center flex-column p-3 alert-success-indi display-none"

@@ -31,6 +31,12 @@ function init() {
   calcOpenMoney();
 }
 
+function initOpenMoney() {
+  document.getElementById("overviewOpenWorkings").innerHTML = ``;
+  showWorkingsUnpaid();
+  calcTotalUnpaidHoursAndMinutes();
+}
+
 function save() {
   getWhatWhere();
   getChoosenDate();
@@ -59,7 +65,7 @@ function getTimeWork() {
   let endZeitMs = new Date("1970-01-01T" + endZeit + "Z").getTime();
 
   if (endZeitMs < startZeitMs) {
-    endZeitMs += 24 * 60 * 60 * 1000; // 24 Stunden in Millisekunden
+    endZeitMs += 24 * 60 * 60 * 1000;
   }
 
   let differenzMs = endZeitMs - startZeitMs;
@@ -68,14 +74,6 @@ function getTimeWork() {
 
   newWork.durationHour = differenzStunden;
   newWork.durarationMinute = differenzMinuten;
-
-  console.log(
-    "Differenz: " +
-      differenzStunden +
-      " Stunden und " +
-      differenzMinuten +
-      " Minuten"
-  );
 }
 
 function getWhatWhere() {
@@ -83,15 +81,13 @@ function getWhatWhere() {
   let doing = document.getElementById("doing").value;
   newWork.where = whereWork;
   newWork.what = doing;
-  // showWorkingsPaid();
-  // showWorkingsUnpaid();
 }
 
 function getChoosenDate() {
   let getWorkDate = document.getElementById("getDate").value;
   const date = new Date(getWorkDate);
   const tag = date.getDate();
-  const monat = date.getMonth() + 1; // Monat ist 0-basiert, also +1
+  const monat = date.getMonth() + 1;
   const jahr = date.getFullYear();
   const formedDate = `${tag.toString().padStart(2, "0")}.${monat
     .toString()
@@ -139,20 +135,13 @@ function validate() {
 }
 
 function calcTotalMoney() {
-  // Daten aus LocalStorage abrufen
   const storedData = localStorage.getItem("workData");
-  // Überprüfen, ob Daten im LocalStorage vorhanden sind
   if (storedData) {
-    // Daten in ein Array umwandeln
     const workData = JSON.parse(storedData);
-    // Variable zum Speichern der Gesamtsumme von howManyMoney
     let totalMoney = 0;
-    // Schleife durchlaufen, um jeden Datensatz zu verarbeiten
     for (let i = 0; i < workData.length; i++) {
       const work = workData[i];
-      // Addiere howManyMoney zum totalMoney
       totalMoney += parseFloat(work.howManyMoney);
-      // Datensatz in die Tabelle einfügen
     }
     document.getElementById("totalMoney").innerHTML = ``;
     document.getElementById("totalMoney").innerHTML += /*html*/ `
@@ -161,29 +150,18 @@ function calcTotalMoney() {
       maximumFractionDigits: 2,
     })} €
   `;
-
-    // Zeige die Gesamtsumme von howManyMoney an
-    console.log("Gesamtsumme von howManyMoney: ", totalMoney);
   }
 }
 
 function calcgotMoney() {
-  // Daten aus LocalStorage abrufen
   const storedData = localStorage.getItem("workData");
-  // Überprüfen, ob Daten im LocalStorage vorhanden sind
   if (storedData) {
-    // Daten in ein Array umwandeln
     const workData = JSON.parse(storedData);
-    // Variable zum Speichern der Gesamtsumme von howManyMoney
-
     let gotMoney = 0;
-    // Schleife durchlaufen, um jeden Datensatz zu verarbeiten
     for (let i = 0; i < workData.length; i++) {
       const work = workData[i];
-      // Addiere howManyMoney zum totalMoney
       if (work.isPaid == true) {
         gotMoney += parseFloat(work.howManyMoney);
-        // Datensatz in die Tabelle einfügen
         document.getElementById("gotMoney").innerHTML = ``;
         document.getElementById("gotMoney").innerHTML += /*html*/ `
       ${gotMoney.toLocaleString("de-DE", {
@@ -194,26 +172,17 @@ function calcgotMoney() {
       }
     }
   }
-  // Zeige die Gesamtsumme von howManyMoney an
-  console.log("Bezahlt: ", gotMoney);
 }
 
 function calcOpenMoney() {
-  // Daten aus LocalStorage abrufen
   const storedData = localStorage.getItem("workData");
-  // Überprüfen, ob Daten im LocalStorage vorhanden sind
   if (storedData) {
-    // Daten in ein Array umwandeln
     const workData = JSON.parse(storedData);
-    // Variable zum Speichern der Gesamtsumme von howManyMoney
     let openMoney = 0;
-    // Schleife durchlaufen, um jeden Datensatz zu verarbeiten
     for (let i = 0; i < workData.length; i++) {
       const work = workData[i];
-      // Addiere howManyMoney zum totalMoney
       if (work.isPaid == false) {
         openMoney += parseFloat(work.howManyMoney);
-        // Datensatz in die Tabelle einfügen
         document.getElementById("openMoney").innerHTML = ``;
         document.getElementById("openMoney").innerHTML += /*html*/ `
       ${openMoney.toLocaleString("de-DE", {
@@ -223,7 +192,80 @@ function calcOpenMoney() {
     `;
       }
     }
-    console.log("Bezahlt: ", openMoney);
   }
-  // Zeige die Gesamtsumme von howManyMoney an
+}
+
+function calcTotalUnpaidHoursAndMinutes() {
+  const storedData = localStorage.getItem("workData");
+  if (storedData) {
+    const workData = JSON.parse(storedData);
+    let totalHours = 0;
+    let totalMinutes = 0;
+    for (let i = 0; i < workData.length; i++) {
+      const work = workData[i];
+      if (work.isPaid == false) {
+        totalHours += parseFloat(work.durationHour);
+        totalMinutes += parseFloat(work.durarationMinute);
+      }
+    }
+
+    // Umwandlung der Minuten in Stunden
+    let additionalHoursFromMinutes = Math.floor(totalMinutes / 60);
+    let remainingMinutes = totalMinutes % 60;
+
+    totalHours += additionalHoursFromMinutes;
+
+    console.log("Gesamt unbezahlte Stunden: ", totalHours);
+    console.log("Gesamt unbezahlte Minuten: ", remainingMinutes);
+    document.getElementById("openHours").innerHTML = "";
+    document.getElementById(
+      "openHours"
+    ).innerHTML += `${totalHours}h ${remainingMinutes}min`;
+  }
+}
+
+// Sortierung nach Datum
+function sortWorkDataByDate() {
+  const storedData = localStorage.getItem("workData");
+  if (storedData) {
+    const workData = JSON.parse(storedData);
+    function compareDates(a, b) {
+      const datePartsA = a.newWorkDate.split(".");
+      const datePartsB = b.newWorkDate.split(".");
+      const dateA = new Date(datePartsA[2], datePartsA[1] - 1, datePartsA[0]);
+      const dateB = new Date(datePartsB[2], datePartsB[1] - 1, datePartsB[0]);
+      return dateA - dateB;
+    }
+    workData.sort(compareDates);
+    localStorage.setItem("workData", JSON.stringify(workData));
+  }
+}
+
+function sortByDateOnClick() {
+  sortWorkDataByDate();
+  init();
+}
+
+// Sortierung nach Name
+function sortWorkDataByName() {
+  const storedData = localStorage.getItem("workData");
+  if (storedData) {
+    const workData = JSON.parse(storedData);
+    function compareNames(a, b) {
+      if (a.where < b.where) {
+        return 1;
+      }
+      if (a.where > b.where) {
+        return -1;
+      }
+      return 0;
+    }
+    workData.sort(compareNames);
+    localStorage.setItem("workData", JSON.stringify(workData));
+  }
+}
+
+function sortByNameOnClick() {
+  sortWorkDataByName();
+  init();
 }

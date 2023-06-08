@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <script src="data.js"></script>
+        <link rel="stylesheet" href="style.css" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+            crossorigin="anonymous" />
+
+        <title>Offene Stunden</title>
+    </head>
+    <body onload="initOpenMoney()">
+        <div class="main-contain">
+            <nav
+                class="navbar  navbar-dark bg-primary-edit p-2 d-flex justify-content-between align-items-center">
+                <a href="index.html"><img src=".\src\img\Amy-whiteOnBlue.png"
+                        style="max-width: 80px;"
+                        alt></a>
+
+                <span>Offene Stunden</span>
+                <div class="header-btn d-flex justify-content-end">
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a
+                            class="nav-item nav-link text-white d-flex justify-content-center"
+                            href="index.html">Übersicht</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-inner mt-1 mb-2 ml-2 mr-2">
+                <div
+                    class="dashboard container-xs text-uppercase ">
+                    <div class="open-hours-sticky">
+                        <div
+                            class="row text-white m-0 mt-1 mb-1 sums rounded bg-warning">
+
+                            <div
+                                class="d-flex  justify-content-between p-0 pl-2 pr-2 w-100">
+                                <div
+                                    class="dashboard-box-inner dashboard-font-size max-fs-22 font-weight-bold">
+                                    <span>Stunden Offen:
+                                    </span> &nbsp;
+                                </div>
+                                <div
+                                    class="dashboard-box-inner dashboard-font-size max-fs-22 font-weight-bold">
+                                    <span
+                                        id="openHours">0
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="pb-2 sticky-table-top">
+                            <div
+                                class="table-top bg-primary-two d-flex justify-content-center align-items-center rounded pr-2">
+                                <div
+                                    class="row text-center w-100 d-flex p-0 table-top-fs">
+                                    <div onclick="overviewSortByDateOnClick()"
+                                        role="button"
+                                        class="col-3 p-0 p-1 rounded-start">Wann</div>
+
+                                    <div onclick="overviewSortByNameOnClick()"
+                                        role="button"
+                                        class="col p-0 p-1 border-middle-head-content ">
+                                        <span>WO</span> / <span>WAS</span>
+                                    </div>
+                                    <div class="col-3 p-0 p-1">Stunden</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="overviewOpenWorkings"
+                        class="d-flex flex-column-reverse overflow-auto height-50vh">
+                    </div>
+                    <a href="#" class="text-white"><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-100 bg-primary-two rounded p-1"
+                            width="32"
+                            height="32"
+                            fill="currentColor" class="bi bi-arrow-up-circle"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <footer
+                class="bg-primary-edit d-flex align-items-center">
+                <div class="w-100 d-flex justify-content-between pl-2 pr-2 ">
+                    <div>
+                        <small> © </small>
+                        <small> ML2023 </small>
+                    </div>
+                    <div class="d-flex">
+                        <a class href="#"> <small class="text-white">
+                                Datenschutz </small></a>
+                        &nbsp; I &nbsp;
+                        <a class href="#"> <small class="text-white">
+                                Impressum </small></a>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- BootstrapScript JS  -->
+
+            <script
+                src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+                integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+                crossorigin="anonymous"></script>
+
+            <!-- BootstrapScript JS  -->
+            <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+            <script src="main.js"></script>
+            <script src="showWorkings.js"></script>
+            <script src="overviewOpenWorkings.js"></script>
+            <script src="buttonStates.js"></script>
+            <script src="tempNeuesEinkommen.js"></script>
+
+        </body>
+    </html>
